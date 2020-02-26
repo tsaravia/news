@@ -12,14 +12,18 @@ loc_test = "-87.6722787"
 
 forecast = ForecastIO.forecast(lat_test,loc_test).to_hash
 
-pp forecast["currently"]
-
 url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9e26233f3dbf43bbb4ad366bb267c58d"
 news = HTTParty.get(url).parsed_response.to_hash
 
 puts news.keys
 
-for summary in news["articles"]
-    # the for loop does days = forecast["daily"]["data"][0]
-    puts "A high temperature of #{summary["description"]} and #{summary["source"]["name"]}"
-end
+# for summary in news["articles"]
+#     # the for loop does days = forecast["daily"]["data"][0]
+#     puts "A high temperature of #{summary["description"]} and #{summary["source"]["name"]}"
+# end
+
+
+# for hours in forecast["hourly"]["data"]
+#     hours = forecast["hourly"]["data"]["summary"]
+#     @hourly << hours
+# end

@@ -31,15 +31,30 @@
     </nav>
 
     <div class="container mt-5">
-        <h2> The weather in <%=@location%> today </h2>
-        <p> The temperature is currently <%=@current_temp%> degrees Farenheit and <%=@current_summary%></p>
-        <p> There is a <%=@precip_perc*100%>% chance of <%=@precip_type%></p>
+        <h2 class="display-4"> The weather in <%=@location%> today </h2>
+        <p> The current temperature is <%=@current_temp%> Farenheit and <%=@current_summary%></p>
+        <p> There is a <%=@precip_perc*100.0%>% chance of <%=@precip_type%>precipitation for today</p>
 
-        <p>  <%=@location%> news </p>
+        <h4 class="display-4"> The forecast for the next 12hs </h4>
+        <p><%=@forecast%> <p>
+        <p>
+        <div class="container mt-5">
+        <% for hours in @forecast_hours  %>
+            <div class="row">
+            <div class="col-6">
+            <p><%=hours["summary"]%></p>
+            </div>
+            <div class="col-6">
+            <p> Temperature <%=hours["temperature"]%> F</p>
+            </div>
+            </div>
+            <% end %>
+            </div>
+        </p>
     </div>
 
     <div class="container mt-5">
-        <h2> This is what's going on in the world</h2>
+        <h2 class="display-4"> This is what's going on in the world</h2>
     </div>
     <p>
       <% for news in @headlines  %>

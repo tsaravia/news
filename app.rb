@@ -31,19 +31,16 @@ lat_long = results.first.coordinates # => [lat, long]
 
 forecast = ForecastIO.forecast(@latitude,@longitude).to_hash
 
+@forecast = forecast["hourly"]["summary"]
 @current_temp = forecast["currently"]["temperature"]
 @current_summary = forecast["currently"]["summary"]
 @precip_type = forecast["currently"]["precipType"]
 @precip_perc = forecast["currently"]["precipProbability"]
+@forecast_hours = forecast["hourly"]["data"][0..11]
+@forecast_weekly = forecast["daily"]["summary"]
 
 @news = news
 @headlines = news["articles"]
-
-
-for summary in news["articles"]
-    # the for loop does days = forecast["daily"]["data"][0]
-    puts "A high temperature of #{summary["description"]} and #{summary["source"]["name"]}"
-end
 
 view"news"
 end
