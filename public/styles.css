@@ -1,15 +1,12 @@
-body {font-family: 'Roboto', sans-serif;}
 
 .navbar-light .navbar-brand {color: rebeccapurple}
 
 .jumbotron {background-attachment: fixed;
-background-image: url(https://projul.com/wp-content/uploads/2019/07/thank-you-1080x446.jpg);
+background-image: url(https://www.mcny.org/sites/default/files/CIG%20terrace%20%2B%20website%20image%20cropped_0.jpg);
 background-size: contain;
-background-repeat: no-repeat;
-background-position: left;
-background-position: center;
 background-color: white;
 padding-bottom: 10em;
 height: 440px;}
 
-.display-4 {color: rebeccapurple}
+.current {color: rebeccapurple;
+font-size: 36px}

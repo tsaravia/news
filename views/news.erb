@@ -32,8 +32,8 @@
 
     <div class="container mt-5">
         <h2 class="display-4"> The weather in <%=@location%> today </h2>
-        <p> The current temperature is <%=@current_temp%> Farenheit and <%=@current_summary%></p>
-        <p> There is a <%=@precip_perc*100.0%>% chance of <%=@precip_type%>precipitation for today</p>
+        <p> The current temperature is <span class="current"><%=@current_temp%></span> Farenheit and <span class="current"><%=@current_summary%></span></p>
+        <p> There is a <span class="current"><%=@precip_perc*100.0%>%</span> chance of <span class="current"><%=@precip_type%></span> precipitation for today</p>
 
         <h4 class="display-4"> The forecast for the next 12hs </h4>
         <p><%=@forecast%> <p>
