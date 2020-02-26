@@ -30,24 +30,36 @@
     </a>
     </nav>
 
-    <div class="jumbotron">
-    <h1 class="display-4">Stay in touch!</h1>
-    <p class="lead">With TakeMeHome you can select your hometown and check the weather, latest news and much more...</p>
-    <hr class="my-4">
-    <p>Simply find your city below and let the app take you <span class="font-weight-bold">home</span></p>
-    </div>
-    
     <div class="container mt-5">
-        <h2> Just answer one question </h2>
+        <h2> The weather in <%=@location%> today </h2>
+        <p> The temperature is currently <%=@current_temp%> degrees Farenheit and <%=@current_summary%></p>
+        <p> There is a <%=@precip_perc*100%>% chance of <%=@precip_type%></p>
+
+        <p>  <%=@location%> news </p>
     </div>
 
     <div class="container mt-5">
-    <form action="/news">
-    <label>Where is home for you?</label>
-    <input type="text" name="location">
-    <button type="submit" class="btn btn-primary">Go there</submit>
-    </form>
+        <h2> This is what's going on in the world</h2>
     </div>
+    <p>
+      <% for news in @headlines  %>
+        <div class="container mt-5">
+        <div class="row">
+        <div class="col-12">
+        <h4><%= news["title"] %></h4>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-9">
+        <p> <%= news["description"] %></p>
+        </div>
+        <div class="col-3">
+        <a href= "<%= news["url"] %>"  class="btn btn-primary">Link to <%= news["source"]["name"] %> </a>
+        </div>
+        </div>
+        </div>
+        <% end %>
+    </p>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
